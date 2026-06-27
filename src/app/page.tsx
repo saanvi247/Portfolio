@@ -1,13 +1,12 @@
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
 import TextReveal from '@/components/common/TextReveal'
 
-// Dynamically import heavy 3D canvas components with SSR disabled to prevent hydration errors
-const NeuralNetwork = dynamic(() => import('@/components/canvas/NeuralNetwork'), { ssr: false })
-const BrainParticle = dynamic(() => import('@/components/canvas/BrainParticle'), { ssr: false })
-const InteractiveGlobe = dynamic(() => import('@/components/canvas/InteractiveGlobe'), { ssr: false })
+import NeuralNetwork from '@/components/canvas/NeuralNetwork'
+import BrainParticle from '@/components/canvas/BrainParticle'
+import InteractiveGlobe from '@/components/canvas/InteractiveGlobe'
 
 export default function Home() {
   return (
