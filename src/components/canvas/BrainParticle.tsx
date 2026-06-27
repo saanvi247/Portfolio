@@ -77,7 +77,7 @@ function BrainPoints({ count = 2200 }: { count?: number }) {
       const idx = i * 3
       
       // Original generated positions (keep as base)
-      const baseZ = positions[idx + 2]
+      
       
       // Apply breathing micro-animation
       const breathing = Math.sin(time + idx * 0.01) * 0.002
