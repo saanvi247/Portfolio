@@ -1,85 +1,117 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  @apply transition-smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html {
+html, body {
+  background-color: #080808;
+  color: #F8F8F8;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background-color: #030712;
-  background-image: 
-    radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15), transparent 50%),
-    radial-gradient(circle at 100% 50%, rgba(99, 102, 241, 0.05), transparent 40%),
-    radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.05), transparent 40%);
-  color: #f8fafc;
-  min-height: 100vh;
-  line-height: 1.6;
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+::-webkit-scrollbar-track {
+  background: #080808;
 }
 
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Custom selection */
 ::selection {
-  background: rgba(14, 165, 233, 0.3);
-  color: #ffffff;
+  background: rgba(59, 130, 246, 0.25);
+  color: #F8F8F8;
 }
 
-/* Custom glassmorphism utilities */
-.glass-card {
-  background: rgba(15, 23, 42, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* Typography styles */
+.font-heading {
+  font-family: var(--font-general-sans), 'General Sans', sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-quote {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(17, 17, 17, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 1.25rem;
 }
 
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.glass-panel-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.glass-card-hover:hover {
-  background: rgba(15, 23, 42, 0.6);
-  border-color: rgba(14, 165, 233, 0.2);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), 0 0 15px rgba(14, 165, 233, 0.1);
-  transform: translateY(-2px);
+
+.glass-panel-hover:hover {
+  background: rgba(17, 17, 17, 0.6);
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.7), 0 0 20px rgba(59, 130, 246, 0.08);
+  transform: translateY(-4px);
 }
 
 .glass-button {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.2s ease-in-out;
+  background: rgba(17, 17, 17, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .glass-button:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(14, 165, 233, 0.3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: rgba(30, 30, 30, 0.85);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
 }
 
-/* Typography */
-h1 {
-  @apply text-4xl md:text-5xl font-bold tracking-tight;
+/* Custom interactive neural glow */
+.glowing-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
 }
 
-h2 {
-  @apply text-3xl md:text-4xl font-bold tracking-tight;
+.glowing-orb-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(59, 130, 246, 0) 70%);
 }
 
-h3 {
-  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+.glowing-orb-purple {
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, rgba(124, 58, 237, 0) 70%);
 }
 
-/* Focus styles */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  @apply outline-none ring-2 ring-primary-500 ring-offset-2 rounded;
+/* Timeline vertical line */
+.timeline-line {
+  background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.3) 15%, rgba(124, 58, 237, 0.3) 85%, transparent);
 }

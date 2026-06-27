@@ -11,11 +11,11 @@ export default function Card({
   className,
   ...props
 }: CardProps) {
-  const baseStyles = 'glass-card p-6'
+  const baseStyles = 'glass-panel'
   
   const variants = {
     default: '',
-    hoverable: 'glass-card-hover',
+    hoverable: 'glass-panel-hover',
   }
 
   return (
