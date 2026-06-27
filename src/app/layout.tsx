@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cormorant.variable} bg-background text-primaryText min-h-screen flex flex-col font-sans selection:bg-accent-blue/30 selection:text-white`}>
       <Header />
       <Head>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='flex-grow w-full relative z-10'>
         {children}
