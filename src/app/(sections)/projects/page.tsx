@@ -3,19 +3,24 @@ import Card from '@/components/ui/Card'
 export default function ProjectsPage() {
   const projects = [
     {
-      title: 'Cognitive Load Study',
-      description: 'Investigating the impact of user interface layout complexity on cognitive processing and task execution speed.',
-      tags: ['Cognitive Science', 'UI Research', 'User Testing'],
+      title: 'Rashtram AI',
+      description: 'An advanced conversational AI system built for scalable infrastructure. Integrated NLP pipelines to understand intent, manage conversational state, and interface with multiple backend services.',
+      tags: ['AI Engineering', 'NLP', 'Python', 'Scalability'],
     },
     {
-      title: 'Behavioral Habit Tracker',
-      description: 'A digital application designed around habit-formation loops, utilizing micro-incentives and positive psychology reinforcement.',
-      tags: ['Behavioral Psychology', 'Web Development', 'UX Design'],
+      title: 'Zomato Data Analysis',
+      description: 'Comprehensive analysis of extensive Zomato datasets. Built automated ETL pipelines and interactive dashboards to surface actionable business metrics and geospatial insights.',
+      tags: ['Data Science', 'ETL', 'SQL', 'Dashboards'],
     },
     {
-      title: 'Empathy Journey Mapper',
-      description: 'A collaborative research tool mapping user emotional states across product interaction stages.',
-      tags: ['User Research', 'Empathy Mapping', 'Product Design'],
+      title: 'Task Management & Billing System',
+      description: 'A robust full-stack solution for tracking employee tasks and automating billing. Implemented secure authentication, real-time database updates, and automated invoice generation.',
+      tags: ['Full Stack', 'Next.js', 'PostgreSQL', 'Automation'],
+    },
+    {
+      title: 'AI Adoption Strategy',
+      description: 'A strategic research and implementation initiative aimed at embedding cutting-edge generative AI tools into enterprise workflows to enhance operational efficiency.',
+      tags: ['Strategy', 'GenAI', 'LLMs', 'Workflow Integration'],
     },
   ]
 
@@ -29,11 +34,11 @@ export default function ProjectsPage() {
           </span>
         </h1>
         <p className='text-base text-slate-400 max-w-2xl'>
-          Explore my selection of psychology-related projects, UX research, and digital product designs.
+          Explore my selection of AI systems, data pipelines, and full-stack software applications.
         </p>
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6'>
         {projects.map((project) => (
           <Card key={project.title} variant='hoverable' className='flex flex-col justify-between h-full space-y-6'>
             <div className='space-y-3'>

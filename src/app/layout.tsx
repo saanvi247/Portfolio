@@ -17,11 +17,11 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'Saanvi Singh | Portfolio',
-  description: 'Psychology student and Political Psychology researcher.',
+  title: 'Shubhaang Kataruka | AI Engineer & Data Systems Builder',
+  description: 'Portfolio of Shubhaang Kataruka - CS & AI Student, AI Engineer, and Data Systems Builder.',
   openGraph: {
-    title: 'Saanvi Singh | Portfolio',
-    description: 'Explore research, projects, and professional insights.',
+    title: 'Shubhaang Kataruka | AI Engineer',
+    description: 'Explore my projects in AI/ML, Data Systems, and Full Stack Development.',
     type: 'website',
   },
 }
