@@ -1,20 +1,30 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Button from '@/components/ui/Button'
 import Card from '@/components/ui/Card'
+import TextReveal from '@/components/common/TextReveal'
+
+// Dynamically import heavy 3D canvas components with SSR disabled to prevent hydration errors
+const NeuralNetwork = dynamic(() => import('@/components/canvas/NeuralNetwork'), { ssr: false })
+const BrainParticle = dynamic(() => import('@/components/canvas/BrainParticle'), { ssr: false })
+const InteractiveGlobe = dynamic(() => import('@/components/canvas/InteractiveGlobe'), { ssr: false })
 
 export default function Home() {
   return (
-    <section className='space-y-24 py-12'>
+    <section className='space-y-24 py-12 relative'>
+      {/* Dynamic Background */}
+      <NeuralNetwork />
+
       {/* Hero Section */}
-      <section id='home' className='pt-12 pb-6'>
+      <section id='home' className='pt-12 pb-6 relative z-10'>
         <div className='max-w-4xl mx-auto text-center space-y-6'>
           <p className='text-xs font-semibold uppercase tracking-[0.35em] text-sky-400'>
             Professional Portfolio
           </p>
           <h1 className='text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight'>
-            Designing polished digital experiences with{' '}
+            <TextReveal text='Designing polished digital experiences with ' />
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400'>
-              clarity and purpose.
+              <TextReveal text='clarity and purpose.' delay={0.5} />
             </span>
           </h1>
           <p className='text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed'>
@@ -36,7 +46,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id='about' className='max-w-6xl mx-auto grid gap-8 lg:grid-cols-[1.3fr_0.7fr] pt-8'>
+      <section id='about' className='max-w-6xl mx-auto grid gap-8 lg:grid-cols-2 pt-8'>
         <div className='space-y-6 flex flex-col justify-center'>
           <h2 className='text-3xl font-bold text-white'>About Me</h2>
           <p className='text-slate-300 leading-relaxed'>
@@ -53,33 +63,24 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <Card className='space-y-6'>
-          <h3 className='text-xl font-bold text-white mb-2'>Overview</h3>
-          <div className='space-y-4'>
-            <div>
-              <p className='text-xs uppercase tracking-[0.25em] text-sky-400 font-semibold'>Location</p>
-              <p className='mt-1 text-sm text-slate-200'>Eindhoven, Netherlands</p>
-            </div>
-            <div>
-              <p className='text-xs uppercase tracking-[0.25em] text-sky-400 font-semibold'>Role</p>
-              <p className='mt-1 text-sm text-slate-200'>Design Researcher & Portfolio Specialist</p>
-            </div>
-            <div>
-              <p className='text-xs uppercase tracking-[0.25em] text-sky-400 font-semibold'>Focus</p>
-              <p className='mt-1 text-sm text-slate-200'>Research, UX design, digital storytelling</p>
-            </div>
-          </div>
-        </Card>
+        <div className='rounded-2xl overflow-hidden relative z-10'>
+          <BrainParticle />
+        </div>
       </section>
 
       {/* Experience Section */}
-      <section id='experience' className='max-w-6xl mx-auto space-y-8 pt-8'>
+      <section id='experience' className='max-w-6xl mx-auto space-y-8 pt-8 relative z-10'>
         <div className='flex flex-col gap-2 md:flex-row md:items-end md:justify-between'>
           <div>
-            <h2 className='text-3xl font-bold text-white'>Experience</h2>
-            <p className='text-slate-400 text-sm max-w-xl'>A selection of recent roles and professional milestones.</p>
+            <h2 className='text-3xl font-bold text-white'>Experience & Global Impact</h2>
+            <p className='text-slate-400 text-sm max-w-xl'>A selection of recent roles and international milestones.</p>
           </div>
         </div>
+        
+        <div className='rounded-2xl overflow-hidden mb-8'>
+           <InteractiveGlobe />
+        </div>
+
         <div className='grid gap-6 lg:grid-cols-2'>
           {[
             {
@@ -105,7 +106,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id='skills' className='max-w-6xl mx-auto space-y-8 pt-8'>
+      <section id='skills' className='max-w-6xl mx-auto space-y-8 pt-8 relative z-10'>
         <div>
           <h2 className='text-3xl font-bold text-white'>Skills</h2>
           <p className='text-slate-400 text-sm max-w-xl'>Tools and disciplines I use to create thoughtful work.</p>
@@ -125,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* Contact CTA Section */}
-      <section id='contact' className='max-w-6xl mx-auto pt-8'>
+      <section id='contact' className='max-w-6xl mx-auto pt-8 relative z-10'>
         <Card className='bg-slate-900/40 border-slate-800/80 p-8 sm:p-12 relative overflow-hidden'>
           <div className='absolute -right-16 -top-16 w-48 h-48 bg-sky-500/10 rounded-full blur-3xl'></div>
           <div className='absolute -left-16 -bottom-16 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl'></div>
